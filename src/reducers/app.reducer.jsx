@@ -17,11 +17,25 @@ export function optionsMore(state, action) {
           result: "Ganaste",
           menu: false,
         };
-      } else {
+      } else if (action.randomNumber === 2) {
         return {
           choice: "tijera",
           enemy: "tijera",
           result: "Empate",
+          menu: false,
+        };
+      } else if (action.randomNumber === 3) {
+        return {
+          choice: "tijera",
+          enemy: "tiburon",
+          result: "Perdiste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 4) {
+        return {
+          choice: "tijera",
+          enemy: "lagarto",
+          result: "Ganaste",
           menu: false,
         };
       }
@@ -41,10 +55,24 @@ export function optionsMore(state, action) {
           result: "Empate",
           menu: false,
         };
-      } else {
+      } else if (action.randomNumber === 2) {
         return {
           choice: "papel",
           enemy: "tijera",
+          result: "Perdiste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 3) {
+        return {
+          choice: "tijera",
+          enemy: "tiburon",
+          result: "Ganaste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 4) {
+        return {
+          choice: "tijera",
+          enemy: "lagarto",
           result: "Perdiste",
           menu: false,
         };
@@ -64,11 +92,99 @@ export function optionsMore(state, action) {
           result: "Perdiste",
           menu: false,
         };
-      } else {
+      } else if (action.randomNumber === 2) {
         return {
           choice: "piedra",
           enemy: "tijera",
           result: "Ganaste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 3) {
+        return {
+          choice: "tijera",
+          enemy: "tiburon",
+          result: "Perdiste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 4) {
+        return {
+          choice: "tijera",
+          enemy: "lagarto",
+          result: "Ganaste",
+          menu: false,
+        };
+      }
+    case "LAGARTO":
+      if (action.randomNumber === 0) {
+        return {
+          choice: "lagarto",
+          enemy: "piedra",
+          result: "Perdiste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 1) {
+        return {
+          choice: "lagarto",
+          enemy: "papel",
+          result: "Ganaste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 2) {
+        return {
+          choice: "lagarto",
+          enemy: "tijera",
+          result: "Perdiste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 3) {
+        return {
+          choice: "lagarto",
+          enemy: "tiburon",
+          result: "Ganaste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 4) {
+        return {
+          choice: "lagarto",
+          enemy: "lagarto",
+          result: "Empate",
+          menu: false,
+        };
+      }
+    case "TIBURON":
+      if (action.randomNumber === 0) {
+        return {
+          choice: "tiburon",
+          enemy: "piedra",
+          result: "Ganaste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 1) {
+        return {
+          choice: "tiburon",
+          enemy: "papel",
+          result: "Perdiste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 2) {
+        return {
+          choice: "tiburon",
+          enemy: "tijera",
+          result: "Ganaste",
+          menu: false,
+        };
+      } else if (action.randomNumber === 3) {
+        return {
+          choice: "tiburon",
+          enemy: "tiburon",
+          result: "Empate",
+          menu: false,
+        };
+      } else if (action.randomNumber === 4) {
+        return {
+          choice: "tiburon",
+          enemy: "lagarto",
+          result: "Perdiste",
           menu: false,
         };
       }
