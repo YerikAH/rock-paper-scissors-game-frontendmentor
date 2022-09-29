@@ -1,6 +1,18 @@
 import React from "react";
 import { useReducer, useState } from "react";
 import { initialState, optionsMore } from "../reducers/app.reducer";
+import {
+  DivCircleOptionOne,
+  DivCircleOptionTwo,
+  FiveDivImage,
+  FiveDivImageContainer,
+  ImageLogo,
+  Navegator,
+  NavegatorUl,
+  NavegatorUlLi,
+  NavegatorUlLiA,
+  NavegatorUlLiASpecial,
+} from "./Styles";
 
 // images
 import logo from "../images/logo-bonus.svg";
@@ -45,31 +57,52 @@ export default function Game() {
     dispatch({ select: "RESET" });
   };
   return (
-    <div>
-      <div className="navegator" role="nav">
-        <ul>
-          <li>
-            <a href="">
-              <img src={logo} alt="logo" />
-            </a>
-          </li>
-          <li>
-            <a href="">
+    <React.Fragment>
+      <Navegator className="navegator" role="nav">
+        <NavegatorUl>
+          <NavegatorUlLi>
+            <NavegatorUlLiA href="#">
+              <ImageLogo src={logo} alt="logo" />
+            </NavegatorUlLiA>
+          </NavegatorUlLi>
+          <NavegatorUlLi>
+            <NavegatorUlLiASpecial href="">
               <span>SCORE</span>
               <span>0</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+            </NavegatorUlLiASpecial>
+          </NavegatorUlLi>
+        </NavegatorUl>
+      </Navegator>
       {state.menu && (
-        <div>
-          <h2>Piedra papel o tijera</h2>
-          <button onClick={handlePiedra}>Piedra</button>
-          <button onClick={handlePapel}>Papel</button>
-          <button onClick={handleTijera}>Tijera</button>
-          <button onClick={handleLagarto}>Lagarto</button>
-          <button onClick={handleTiburon}>Tiburon</button>
-        </div>
+        <FiveDivImageContainer>
+          <FiveDivImage>
+            <DivCircleOptionOne>
+              <DivCircleOptionTwo>
+                <button onClick={handlePiedra}>Piedra</button>
+              </DivCircleOptionTwo>
+            </DivCircleOptionOne>
+            <DivCircleOptionOne>
+              <DivCircleOptionTwo>
+                <button onClick={handlePapel}>Papel</button>
+              </DivCircleOptionTwo>
+            </DivCircleOptionOne>
+            <DivCircleOptionOne>
+              <DivCircleOptionTwo>
+                <button onClick={handleTijera}>Tijera</button>
+              </DivCircleOptionTwo>
+            </DivCircleOptionOne>
+            <DivCircleOptionOne>
+              <DivCircleOptionTwo>
+                <button onClick={handleTiburon}>Tiburon</button>
+              </DivCircleOptionTwo>
+            </DivCircleOptionOne>
+            <DivCircleOptionOne>
+              <DivCircleOptionTwo>
+                <button onClick={handleLagarto}>Lagarto</button>
+              </DivCircleOptionTwo>
+            </DivCircleOptionOne>
+          </FiveDivImage>
+        </FiveDivImageContainer>
       )}
       {!state.menu && (
         <p>
@@ -78,6 +111,6 @@ export default function Game() {
           <button onClick={handleReset}>Reset</button>
         </p>
       )}
-    </div>
+    </React.Fragment>
   );
 }
