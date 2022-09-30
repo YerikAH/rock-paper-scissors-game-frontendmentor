@@ -1,32 +1,66 @@
 import styled from "styled-components";
 import bgOptions from "../images/bg-pentagon.svg";
+import scissorrs from "../images/icon-scissors.svg";
+import paper from "../images/icon-paper.svg";
+import rock from "../images/icon-rock.svg";
+import lizard from "../images/icon-lizard.svg";
+import spock from "../images/icon-spock.svg";
 
 export const Navegator = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 `;
 export const NavegatorUl = styled.ul`
   display: flex;
   max-width: 720px;
   width: 100%;
   justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border: 4px solid #fff5;
+  border-radius: 0.5em;
+  height: 6rem;
 `;
-export const NavegatorUlLi = styled.li``;
-export const ImageLogo = styled.img``;
+export const NavegatorUlLi = styled.li`
+  height: 100%;
+  max-height: 117px;
+  display: flex;
+  align-items: center;
+`;
+export const ImageLogo = styled.img`
+  height: 85%;
+`;
 export const NavegatorUlLiA = styled.a``;
 export const NavegatorUlLiASpecial = styled.a`
+  background: var(--white);
+  height: 100%;
+  border-radius: 0.5em;
   display: grid;
+  place-items: center;
+  padding: 0.5rem 1rem;
 `;
+export const SpanScoreText = styled.span`
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--Score-Text);
+`;
+export const SpanScoreCounts = styled.span`
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--Dark-text);
+`;
+
 export const FiveDivImage = styled.div`
   background-image: url(${bgOptions});
   height: 19.5625rem;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  max-width: 329px;
+  max-width: 350px;
   position: relative;
   scale: 0.7;
+  background-size: contain;
 `;
 export const FiveDivImageContainer = styled.div`
   width: 100vw;
@@ -37,21 +71,90 @@ export const FiveDivImageContainer = styled.div`
 `;
 export const DivCircleOptionOne = styled.div`
   width: 100%;
-  max-width: 80px;
+  max-width: 130px;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: ${(props) => (props.bottom ? "0" : "auto")};
+  right: ${(props) => (props.right ? "0" : "auto")};
+  top: ${(props) => (props.top ? "0" : "auto")};
+  left: ${(props) => (props.left ? "0" : "auto")};
+  margin: ${(props) => (props.mar ? "0 auto" : "0")};
   border-radius: 255px;
   height: 100%;
-  max-height: 80px;
+  max-height: 130px;
+  box-shadow: inset 3px -5px 1px rgba(0, 0, 0, 0.37);
+  background: ${(props) =>
+    props.color === "yellow" &&
+    "linear-gradient( 239deg, rgba(235, 168, 34, 1) 32%, rgba(236, 158, 13, 1) 100% )"};
+  background: ${(props) =>
+    props.color === "red" &&
+    "linear-gradient( 239deg, hsl(349, 71%, 52%) 32%, hsl(349, 70%, 56%) 100% )"};
+  background: ${(props) =>
+    props.color === "blue" &&
+    "linear-gradient( 239deg, hsl(230, 89%, 62%) 32%, hsl(230, 89%, 65%) 100% )"};
+  background: ${(props) =>
+    props.color === "sky" &&
+    "linear-gradient( 239deg, hsl(189, 59%, 53%) 32%, hsl(189, 58%, 57%) 100% )"};
+  background: ${(props) =>
+    props.color === "purple" &&
+    "linear-gradient( 239deg, hsl(261, 73%, 60%) 32%, hsl(261, 72%, 63%) 100% )"};
+
+  bottom: ${(props) => props.just && props.just};
+  top: ${(props) => props.justop && props.justop};
+  right: ${(props) => props.justright && props.justright};
+  left: ${(props) => props.justleft && props.justleft};
+  display: grid;
+  place-items: center;
 `;
+
 export const DivCircleOptionTwo = styled.div`
   width: 100%;
-  max-width: 60px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  max-width: 100px;
   border-radius: 255px;
   height: 100%;
-  max-height: 60px;
+  max-height: 100px;
+  background-color: var(--white);
+  box-shadow: inset 3px 2px 2px 1px rgba(0, 0, 0, 0.37);
+  display: grid;
+  place-items: center;
 `;
+export const DivImageYellow = styled.div`
+  background-image: url(${scissorrs});
+  width: 60%;
+  height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+export const DivImageBlue = styled.div`
+  background-image: url(${paper});
+  width: 60%;
+  height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+export const DivImageRed = styled.div`
+  background-image: url(${rock});
+  width: 60%;
+  height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+export const DivImageSky = styled.div`
+  background-image: url(${spock});
+  width: 60%;
+  height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+export const DivImagePurple = styled.div`
+  background-image: url(${lizard});
+  width: 60%;
+  height: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+export const DivResult = styled.div``;

@@ -4,6 +4,12 @@ import { initialState, optionsMore } from "../reducers/app.reducer";
 import {
   DivCircleOptionOne,
   DivCircleOptionTwo,
+  DivImageBlue,
+  DivImagePurple,
+  DivImageRed,
+  DivImageSky,
+  DivImageYellow,
+  DivResult,
   FiveDivImage,
   FiveDivImageContainer,
   ImageLogo,
@@ -12,6 +18,8 @@ import {
   NavegatorUlLi,
   NavegatorUlLiA,
   NavegatorUlLiASpecial,
+  SpanScoreCounts,
+  SpanScoreText,
 } from "./Styles";
 
 // images
@@ -21,6 +29,8 @@ export default function Game() {
   //0 = piedra
   //1 = papel
   //2 = tijera
+  const [choiceRender, setChoiceRender] = useState("");
+  const [choiceRenderEnemy, setChoiceRenderEnemy] = useState("");
   const [state, dispatch] = useReducer(optionsMore, initialState);
   const [randomNumber, setRandomNumber] = useState(0);
 
@@ -31,44 +41,69 @@ export default function Game() {
       randomNumber: randomNumber,
     });
     console.log(randomNumber);
+    setChoiceRender("yellow");
+    validateColor();
   };
   const handlePapel = () => {
+    setChoiceRender("blue");
     setRandomNumber(parseInt(Math.random() * 5));
     console.log(randomNumber);
     dispatch({ select: "PAPEL", randomNumber: randomNumber });
+    validateColor();
   };
   const handlePiedra = () => {
+    setChoiceRender("red");
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({ select: "PIEDRA", randomNumber: randomNumber });
+    validateColor();
+
     console.log(randomNumber);
   };
   const handleLagarto = () => {
+    setChoiceRender("purple");
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({ select: "LAGARTO", randomNumber: randomNumber });
+    validateColor();
+
     console.log(randomNumber);
   };
   const handleTiburon = () => {
+    setChoiceRender("sky");
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({ select: "TIBURON", randomNumber: randomNumber });
+    validateColor();
+
     console.log(randomNumber);
   };
 
   const handleReset = () => {
     dispatch({ select: "RESET" });
   };
+  function validateColor() {
+    if (randomNumber== 0) {
+      setChoiceRenderEnemy("red");
+    } else if (randomNumber== 1) {
+      setChoiceRenderEnemy("blue");
+    } else if (randomNumber==2) {
+      setChoiceRenderEnemy("yellow");
+    } else if (randomNumber==3) {
+      setChoiceRenderEnemy("sky");
+    } else if (randomNumber== 4) {
+      setChoiceRenderEnemy("purple");
+    }
+  }
+
   return (
     <React.Fragment>
       <Navegator className="navegator" role="nav">
         <NavegatorUl>
           <NavegatorUlLi>
-            <NavegatorUlLiA href="#">
-              <ImageLogo src={logo} alt="logo" />
-            </NavegatorUlLiA>
+            <ImageLogo src={logo} alt="logo" />
           </NavegatorUlLi>
           <NavegatorUlLi>
             <NavegatorUlLiASpecial href="">
-              <span>SCORE</span>
-              <span>0</span>
+              <SpanScoreText>SCORE</SpanScoreText>
+              <SpanScoreCounts>0</SpanScoreCounts>
             </NavegatorUlLiASpecial>
           </NavegatorUlLi>
         </NavegatorUl>
@@ -76,40 +111,86 @@ export default function Game() {
       {state.menu && (
         <FiveDivImageContainer>
           <FiveDivImage>
-            <DivCircleOptionOne>
+            <DivCircleOptionOne bottom right color="red" just="-60px">
               <DivCircleOptionTwo>
-                <button onClick={handlePiedra}>Piedra</button>
+                <DivImageRed onClick={handlePiedra}></DivImageRed>
               </DivCircleOptionTwo>
             </DivCircleOptionOne>
-            <DivCircleOptionOne>
+            <DivCircleOptionOne
+              right
+              top
+              color="blue"
+              justop="70px"
+              justright="-50px"
+            >
               <DivCircleOptionTwo>
-                <button onClick={handlePapel}>Papel</button>
+                <DivImageBlue onClick={handlePapel}></DivImageBlue>
               </DivCircleOptionTwo>
             </DivCircleOptionOne>
-            <DivCircleOptionOne>
+            <DivCircleOptionOne
+              top
+              bottom
+              left
+              right
+              mar
+              color="yellow"
+              justop="-50px"
+            >
               <DivCircleOptionTwo>
-                <button onClick={handleTijera}>Tijera</button>
+                <DivImageYellow onClick={handleTijera}></DivImageYellow>
               </DivCircleOptionTwo>
             </DivCircleOptionOne>
-            <DivCircleOptionOne>
+            <DivCircleOptionOne
+              left
+              top
+              color="sky"
+              justop="70px"
+              justleft="-50px"
+            >
               <DivCircleOptionTwo>
-                <button onClick={handleTiburon}>Tiburon</button>
+                <DivImageSky onClick={handleTiburon}></DivImageSky>
               </DivCircleOptionTwo>
             </DivCircleOptionOne>
-            <DivCircleOptionOne>
+            <DivCircleOptionOne left bottom color="purple" just="-60px">
               <DivCircleOptionTwo>
-                <button onClick={handleLagarto}>Lagarto</button>
+                <DivImagePurple onClick={handleLagarto}></DivImagePurple>
               </DivCircleOptionTwo>
             </DivCircleOptionOne>
           </FiveDivImage>
         </FiveDivImageContainer>
       )}
       {!state.menu && (
-        <p>
-          Tu elegiste: {state.choice}, tu enemigo eligio:{state.enemy}, El
-          resultado es: {state.result}
-          <button onClick={handleReset}>Reset</button>
-        </p>
+        <DivResult>
+          <DivCircleOptionOne color={choiceRender}>
+            <DivCircleOptionTwo>
+              {choiceRender === "red" && <DivImageRed></DivImageRed>}
+              {choiceRender === "blue" && <DivImageBlue></DivImageBlue>}
+              {choiceRender === "yellow" && <DivImageYellow></DivImageYellow>}
+              {choiceRender === "purple" && <DivImagePurple></DivImagePurple>}
+              {choiceRender === "sky" && <DivImageSky></DivImageSky>}
+            </DivCircleOptionTwo>
+          </DivCircleOptionOne>
+
+          <DivCircleOptionOne color={choiceRenderEnemy}>
+            <DivCircleOptionTwo>
+              {choiceRenderEnemy === "red" && <DivImageRed></DivImageRed>}
+              {choiceRenderEnemy === "blue" && <DivImageBlue></DivImageBlue>}
+              {choiceRenderEnemy === "yellow" && (
+                <DivImageYellow></DivImageYellow>
+              )}
+              {choiceRenderEnemy === "purple" && (
+                <DivImagePurple></DivImagePurple>
+              )}
+              {choiceRenderEnemy === "sky" && <DivImageSky></DivImageSky>}
+            </DivCircleOptionTwo>
+          </DivCircleOptionOne>
+
+          <p>
+            Tu elegiste: {state.choice}, tu enemigo eligio:{state.enemy}, El
+            resultado es: {state.result}
+            <button onClick={handleReset}>Reset</button>
+          </p>
+        </DivResult>
       )}
     </React.Fragment>
   );
