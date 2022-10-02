@@ -29,7 +29,7 @@ export const NavegatorUlLi = styled.li`
   align-items: center;
 `;
 export const ImageLogo = styled.img`
-  height: 85%;
+  height: 70%;
 `;
 export const NavegatorUlLiA = styled.a``;
 export const NavegatorUlLiASpecial = styled.a`
@@ -41,8 +41,8 @@ export const NavegatorUlLiASpecial = styled.a`
   padding: 0.5rem 1rem;
 `;
 export const SpanScoreText = styled.span`
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
   color: var(--Score-Text);
 `;
 export const SpanScoreCounts = styled.span`
@@ -53,11 +53,11 @@ export const SpanScoreCounts = styled.span`
 
 export const FiveDivImage = styled.div`
   background-image: url(${bgOptions});
-  height: 19.5625rem;
+  height: 17.5625rem;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  max-width: 350px;
+  max-width: 270px;
   position: relative;
   scale: 0.7;
   background-size: contain;
@@ -71,7 +71,7 @@ export const FiveDivImageContainer = styled.div`
 `;
 export const DivCircleOptionOne = styled.div`
   width: 100%;
-  max-width: 130px;
+  max-width: 120px;
   position: absolute;
   bottom: ${(props) => (props.bottom ? "0" : "auto")};
   right: ${(props) => (props.right ? "0" : "auto")};
@@ -80,7 +80,7 @@ export const DivCircleOptionOne = styled.div`
   margin: ${(props) => (props.mar ? "0 auto" : "0")};
   border-radius: 255px;
   height: 100%;
-  max-height: 130px;
+  max-height: 120px;
   box-shadow: inset 3px -5px 1px rgba(0, 0, 0, 0.37);
   background: ${(props) =>
     props.color === "yellow" &&
@@ -104,14 +104,15 @@ export const DivCircleOptionOne = styled.div`
   left: ${(props) => props.justleft && props.justleft};
   display: grid;
   place-items: center;
+  transition: 2s;
 `;
 
 export const DivCircleOptionTwo = styled.div`
   width: 100%;
-  max-width: 100px;
+  max-width: 90px;
   border-radius: 255px;
   height: 100%;
-  max-height: 100px;
+  max-height: 90px;
   background-color: var(--white);
   box-shadow: inset 3px 2px 2px 1px rgba(0, 0, 0, 0.37);
   display: grid;
@@ -157,4 +158,53 @@ export const DivImagePurple = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-export const DivResult = styled.div``;
+export const DivResult = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80%;
+  padding: 2rem;
+`;
+export const DivResultContent = styled.div`
+  max-width: 720px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  position: relative;
+  height: 80%;
+`;
+export const DivAletoreStop = styled.div`
+  width: 100%;
+  max-width: 90px;
+  position: absolute;
+  bottom: auto;
+  right: 0;
+  top: auto;
+  left: auto;
+  margin: 0;
+  border-radius: 255px;
+  height: 100%;
+  max-height: 90px;
+  background-color: #0005;
+  margin-top: 30px;
+`;
+export const ParrChoiceUser = styled.h2`
+  color: var(--white);
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  text-align: center;
+`;
+export const ContainerChoiceImge = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+
+export const ContainerChoiceAll = styled.div`
+  display: grid;
+  grid-template-rows: 120px auto;
+  row-gap: 1.5rem;
+`;
+// box-shadow: inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08;

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useReducer, useState } from "react";
 import { initialState, optionsMore } from "../reducers/app.reducer";
 import {
+  ContainerChoiceAll,
+  ContainerChoiceImge,
+  DivAletoreStop,
   DivCircleOptionOne,
   DivCircleOptionTwo,
   DivImageBlue,
@@ -10,6 +13,7 @@ import {
   DivImageSky,
   DivImageYellow,
   DivResult,
+  DivResultContent,
   FiveDivImage,
   FiveDivImageContainer,
   ImageLogo,
@@ -18,6 +22,7 @@ import {
   NavegatorUlLi,
   NavegatorUlLiA,
   NavegatorUlLiASpecial,
+  ParrChoiceUser,
   SpanScoreCounts,
   SpanScoreText,
 } from "./Styles";
@@ -29,10 +34,13 @@ export default function Game() {
   //0 = piedra
   //1 = papel
   //2 = tijera
+
+  const [countTime, setCountTime] = useState(false);
   const [choiceRender, setChoiceRender] = useState("");
   const [choiceRenderEnemy, setChoiceRenderEnemy] = useState("");
   const [state, dispatch] = useReducer(optionsMore, initialState);
   const [randomNumber, setRandomNumber] = useState(0);
+  const [styleDinamic, setStyleDinamic] = useState({});
 
   const handleTijera = () => {
     setRandomNumber(parseInt(Math.random() * 5));
@@ -78,19 +86,34 @@ export default function Game() {
 
   const handleReset = () => {
     dispatch({ select: "RESET" });
+    if (countTime) {
+      setCountTime(false);
+      setStyleDinamic({});
+    }
   };
   function validateColor() {
-    if (randomNumber== 0) {
+    setTimeout(() => {
+      setCountTime(true);
+    }, 2000);
+    setTimeout(() => {
+      setStyleDinamic({
+        boxShadow:
+          "inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08",
+      });
+    }, 2500);
+    if (randomNumber == 0) {
       setChoiceRenderEnemy("red");
-    } else if (randomNumber== 1) {
+    } else if (randomNumber == 1) {
       setChoiceRenderEnemy("blue");
-    } else if (randomNumber==2) {
+    } else if (randomNumber == 2) {
       setChoiceRenderEnemy("yellow");
-    } else if (randomNumber==3) {
+    } else if (randomNumber == 3) {
       setChoiceRenderEnemy("sky");
-    } else if (randomNumber== 4) {
+    } else if (randomNumber == 4) {
       setChoiceRenderEnemy("purple");
     }
+    console.log(state);
+    console.log(initialState);
   }
 
   return (
@@ -161,30 +184,118 @@ export default function Game() {
       )}
       {!state.menu && (
         <DivResult>
-          <DivCircleOptionOne color={choiceRender}>
-            <DivCircleOptionTwo>
-              {choiceRender === "red" && <DivImageRed></DivImageRed>}
-              {choiceRender === "blue" && <DivImageBlue></DivImageBlue>}
-              {choiceRender === "yellow" && <DivImageYellow></DivImageYellow>}
-              {choiceRender === "purple" && <DivImagePurple></DivImagePurple>}
-              {choiceRender === "sky" && <DivImageSky></DivImageSky>}
-            </DivCircleOptionTwo>
-          </DivCircleOptionOne>
-
-          <DivCircleOptionOne color={choiceRenderEnemy}>
-            <DivCircleOptionTwo>
-              {choiceRenderEnemy === "red" && <DivImageRed></DivImageRed>}
-              {choiceRenderEnemy === "blue" && <DivImageBlue></DivImageBlue>}
-              {choiceRenderEnemy === "yellow" && (
-                <DivImageYellow></DivImageYellow>
+          <DivResultContent>
+            <ContainerChoiceAll>
+              {state.result === "Ganaste" ? (
+                <>
+                  <ContainerChoiceImge>
+                    <DivCircleOptionOne
+                      color={choiceRender}
+                      style={styleDinamic}
+                    >
+                      <DivCircleOptionTwo>
+                        {choiceRender === "red" && <DivImageRed></DivImageRed>}
+                        {choiceRender === "blue" && (
+                          <DivImageBlue></DivImageBlue>
+                        )}
+                        {choiceRender === "yellow" && (
+                          <DivImageYellow></DivImageYellow>
+                        )}
+                        {choiceRender === "purple" && (
+                          <DivImagePurple></DivImagePurple>
+                        )}
+                        {choiceRender === "sky" && <DivImageSky></DivImageSky>}
+                      </DivCircleOptionTwo>
+                    </DivCircleOptionOne>
+                  </ContainerChoiceImge>
+                  <ParrChoiceUser>YOU PICKED</ParrChoiceUser>
+                </>
+              ) : (
+                <>
+                  <ContainerChoiceImge>
+                    <DivCircleOptionOne color={choiceRender}>
+                      <DivCircleOptionTwo>
+                        {choiceRender === "red" && <DivImageRed></DivImageRed>}
+                        {choiceRender === "blue" && (
+                          <DivImageBlue></DivImageBlue>
+                        )}
+                        {choiceRender === "yellow" && (
+                          <DivImageYellow></DivImageYellow>
+                        )}
+                        {choiceRender === "purple" && (
+                          <DivImagePurple></DivImagePurple>
+                        )}
+                        {choiceRender === "sky" && <DivImageSky></DivImageSky>}
+                      </DivCircleOptionTwo>
+                    </DivCircleOptionOne>
+                  </ContainerChoiceImge>
+                  <ParrChoiceUser>YOU PICKED</ParrChoiceUser>{" "}
+                </>
               )}
-              {choiceRenderEnemy === "purple" && (
-                <DivImagePurple></DivImagePurple>
-              )}
-              {choiceRenderEnemy === "sky" && <DivImageSky></DivImageSky>}
-            </DivCircleOptionTwo>
-          </DivCircleOptionOne>
-
+            </ContainerChoiceAll>
+            {!countTime ? (
+              <DivAletoreStop></DivAletoreStop>
+            ) : (
+              <React.Fragment>
+                <ContainerChoiceAll>
+                  {state.result === "Perdiste" ? (
+                    <>
+                      <ContainerChoiceImge>
+                        <DivCircleOptionOne
+                          color={choiceRenderEnemy}
+                          style={styleDinamic}
+                        >
+                          <DivCircleOptionTwo>
+                            {choiceRenderEnemy === "red" && (
+                              <DivImageRed></DivImageRed>
+                            )}
+                            {choiceRenderEnemy === "blue" && (
+                              <DivImageBlue></DivImageBlue>
+                            )}
+                            {choiceRenderEnemy === "yellow" && (
+                              <DivImageYellow></DivImageYellow>
+                            )}
+                            {choiceRenderEnemy === "purple" && (
+                              <DivImagePurple></DivImagePurple>
+                            )}
+                            {choiceRenderEnemy === "sky" && (
+                              <DivImageSky></DivImageSky>
+                            )}
+                          </DivCircleOptionTwo>
+                        </DivCircleOptionOne>
+                      </ContainerChoiceImge>
+                      <ParrChoiceUser>THE HOUSE PICKED</ParrChoiceUser>
+                    </>
+                  ) : (
+                    <>
+                      <ContainerChoiceImge>
+                        <DivCircleOptionOne color={choiceRenderEnemy}>
+                          <DivCircleOptionTwo>
+                            {choiceRenderEnemy === "red" && (
+                              <DivImageRed></DivImageRed>
+                            )}
+                            {choiceRenderEnemy === "blue" && (
+                              <DivImageBlue></DivImageBlue>
+                            )}
+                            {choiceRenderEnemy === "yellow" && (
+                              <DivImageYellow></DivImageYellow>
+                            )}
+                            {choiceRenderEnemy === "purple" && (
+                              <DivImagePurple></DivImagePurple>
+                            )}
+                            {choiceRenderEnemy === "sky" && (
+                              <DivImageSky></DivImageSky>
+                            )}
+                          </DivCircleOptionTwo>
+                        </DivCircleOptionOne>
+                      </ContainerChoiceImge>
+                      <ParrChoiceUser>THE HOUSE PICKED</ParrChoiceUser>
+                    </>
+                  )}
+                </ContainerChoiceAll>
+              </React.Fragment>
+            )}
+          </DivResultContent>
           <p>
             Tu elegiste: {state.choice}, tu enemigo eligio:{state.enemy}, El
             resultado es: {state.result}
