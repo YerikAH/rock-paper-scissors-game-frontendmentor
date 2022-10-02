@@ -2,189 +2,189 @@ export const initialState = { choice: "", enemy: "", result: "", menu: true };
 
 export function optionsMore(state, action) {
   switch (action.select) {
-    case "TIJERA":
+    case "SCISSORS":
       if (action.randomNumber === 0) {
         return {
-          choice: "tijera",
-          enemy: "piedra",
-          result: "Perdiste",
+          choice: "SCISSORS",
+          enemy: "ROCK",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 1) {
         return {
-          choice: "tijera",
-          enemy: "papel",
-          result: "Ganaste",
+          choice: "SCISSORS",
+          enemy: "PAPER",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 2) {
         return {
-          choice: "tijera",
-          enemy: "tijera",
-          result: "Empate",
+          choice: "SCISSORS",
+          enemy: "SCISSORS",
+          result: "TIED",
           menu: false,
         };
       } else if (action.randomNumber === 3) {
         return {
-          choice: "tijera",
-          enemy: "tiburon",
-          result: "Perdiste",
+          choice: "SCISSORS",
+          enemy: "SPOCK",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 4) {
         return {
-          choice: "tijera",
-          enemy: "lagarto",
-          result: "Ganaste",
+          choice: "SCISSORS",
+          enemy: "LIZARD",
+          result: "WIN",
           menu: false,
         };
       }
 
-    case "PAPEL":
+    case "PAPER":
       if (action.randomNumber === 0) {
         return {
-          choice: "papel",
-          enemy: "piedra",
-          result: "Ganaste",
+          choice: "PAPER",
+          enemy: "ROCK",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 1) {
         return {
-          choice: "papel",
-          enemy: "papel",
-          result: "Empate",
+          choice: "PAPER",
+          enemy: "PAPER",
+          result: "TIED",
           menu: false,
         };
       } else if (action.randomNumber === 2) {
         return {
-          choice: "papel",
-          enemy: "tijera",
-          result: "Perdiste",
+          choice: "PAPER",
+          enemy: "SCISSORS",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 3) {
         return {
-          choice: "tijera",
-          enemy: "tiburon",
-          result: "Ganaste",
+          choice: "PAPER",
+          enemy: "SPOCK",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 4) {
         return {
-          choice: "tijera",
-          enemy: "lagarto",
-          result: "Perdiste",
+          choice: "PAPER",
+          enemy: "LIZARD",
+          result: "LOSE",
           menu: false,
         };
       }
-    case "PIEDRA":
+    case "ROCK":
       if (action.randomNumber === 0) {
         return {
-          choice: "piedra",
-          enemy: "piedra",
-          result: "Empate",
+          choice: "ROCK",
+          enemy: "ROCK",
+          result: "TIED",
           menu: false,
         };
       } else if (action.randomNumber === 1) {
         return {
-          choice: "piedra",
-          enemy: "papel",
-          result: "Perdiste",
+          choice: "ROCK",
+          enemy: "PAPER",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 2) {
         return {
-          choice: "piedra",
-          enemy: "tijera",
-          result: "Ganaste",
+          choice: "ROCK",
+          enemy: "SCISSORS",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 3) {
         return {
-          choice: "tijera",
-          enemy: "tiburon",
-          result: "Perdiste",
+          choice: "ROCK",
+          enemy: "SPOCK",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 4) {
         return {
-          choice: "tijera",
-          enemy: "lagarto",
-          result: "Ganaste",
+          choice: "ROCK",
+          enemy: "LIZARD",
+          result: "WIN",
           menu: false,
         };
       }
-    case "LAGARTO":
+    case "LIZARD":
       if (action.randomNumber === 0) {
         return {
-          choice: "lagarto",
-          enemy: "piedra",
-          result: "Perdiste",
+          choice: "LIZARD",
+          enemy: "ROCK",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 1) {
         return {
-          choice: "lagarto",
-          enemy: "papel",
-          result: "Ganaste",
+          choice: "LIZARD",
+          enemy: "PAPER",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 2) {
         return {
-          choice: "lagarto",
-          enemy: "tijera",
-          result: "Perdiste",
+          choice: "LIZARD",
+          enemy: "SCISSORS",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 3) {
         return {
-          choice: "lagarto",
-          enemy: "tiburon",
-          result: "Ganaste",
+          choice: "LIZARD",
+          enemy: "SPOCK",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 4) {
         return {
-          choice: "lagarto",
-          enemy: "lagarto",
-          result: "Empate",
+          choice: "LIZARD",
+          enemy: "LIZARD",
+          result: "TIED",
           menu: false,
         };
       }
-    case "TIBURON":
+    case "SPOCK":
       if (action.randomNumber === 0) {
         return {
-          choice: "tiburon",
-          enemy: "piedra",
-          result: "Ganaste",
+          choice: "SPOCK",
+          enemy: "ROCK",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 1) {
         return {
-          choice: "tiburon",
-          enemy: "papel",
-          result: "Perdiste",
+          choice: "SPOCK",
+          enemy: "PAPER",
+          result: "LOSE",
           menu: false,
         };
       } else if (action.randomNumber === 2) {
         return {
-          choice: "tiburon",
-          enemy: "tijera",
-          result: "Ganaste",
+          choice: "SPOCK",
+          enemy: "SCISSORS",
+          result: "WIN",
           menu: false,
         };
       } else if (action.randomNumber === 3) {
         return {
-          choice: "tiburon",
-          enemy: "tiburon",
-          result: "Empate",
+          choice: "SPOCK",
+          enemy: "SPOCK",
+          result: "TIED",
           menu: false,
         };
       } else if (action.randomNumber === 4) {
         return {
-          choice: "tiburon",
-          enemy: "lagarto",
-          result: "Perdiste",
+          choice: "SPOCK",
+          enemy: "LIZARD",
+          result: "LOSE",
           menu: false,
         };
       }

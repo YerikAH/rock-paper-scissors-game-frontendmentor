@@ -173,7 +173,7 @@ export const DivResultContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 50%);
   position: relative;
-  height: 80%;
+  height: 40%;
 `;
 export const DivAletoreStop = styled.div`
   width: 100%;
@@ -207,4 +207,10 @@ export const ContainerChoiceAll = styled.div`
   grid-template-rows: 120px auto;
   row-gap: 1.5rem;
 `;
+
+export const DivResultTextResults = styled.div`
+  height: 40%;
+`;
+export const TitleTextWinnerOrLoser = styled.h4``;
+export const ButtonForReset = styled.button``;
 // box-shadow: inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08;

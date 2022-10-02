@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useReducer, useState } from "react";
 import { initialState, optionsMore } from "../reducers/app.reducer";
 import {
+  ButtonForReset,
   ContainerChoiceAll,
   ContainerChoiceImge,
   DivAletoreStop,
@@ -14,6 +15,7 @@ import {
   DivImageYellow,
   DivResult,
   DivResultContent,
+  DivResultTextResults,
   FiveDivImage,
   FiveDivImageContainer,
   ImageLogo,
@@ -25,6 +27,7 @@ import {
   ParrChoiceUser,
   SpanScoreCounts,
   SpanScoreText,
+  TitleTextWinnerOrLoser,
 } from "./Styles";
 
 // images
@@ -45,7 +48,7 @@ export default function Game() {
   const handleTijera = () => {
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({
-      select: "TIJERA",
+      select: "SCISSORS",
       randomNumber: randomNumber,
     });
     console.log(randomNumber);
@@ -56,13 +59,13 @@ export default function Game() {
     setChoiceRender("blue");
     setRandomNumber(parseInt(Math.random() * 5));
     console.log(randomNumber);
-    dispatch({ select: "PAPEL", randomNumber: randomNumber });
+    dispatch({ select: "PAPER", randomNumber: randomNumber });
     validateColor();
   };
   const handlePiedra = () => {
     setChoiceRender("red");
     setRandomNumber(parseInt(Math.random() * 5));
-    dispatch({ select: "PIEDRA", randomNumber: randomNumber });
+    dispatch({ select: "ROCK", randomNumber: randomNumber });
     validateColor();
 
     console.log(randomNumber);
@@ -70,7 +73,7 @@ export default function Game() {
   const handleLagarto = () => {
     setChoiceRender("purple");
     setRandomNumber(parseInt(Math.random() * 5));
-    dispatch({ select: "LAGARTO", randomNumber: randomNumber });
+    dispatch({ select: "LIZARD", randomNumber: randomNumber });
     validateColor();
 
     console.log(randomNumber);
@@ -78,7 +81,7 @@ export default function Game() {
   const handleTiburon = () => {
     setChoiceRender("sky");
     setRandomNumber(parseInt(Math.random() * 5));
-    dispatch({ select: "TIBURON", randomNumber: randomNumber });
+    dispatch({ select: "SPOCK", randomNumber: randomNumber });
     validateColor();
 
     console.log(randomNumber);
@@ -186,7 +189,7 @@ export default function Game() {
         <DivResult>
           <DivResultContent>
             <ContainerChoiceAll>
-              {state.result === "Ganaste" ? (
+              {state.result === "WIN" ? (
                 <>
                   <ContainerChoiceImge>
                     <DivCircleOptionOne
@@ -238,7 +241,7 @@ export default function Game() {
             ) : (
               <React.Fragment>
                 <ContainerChoiceAll>
-                  {state.result === "Perdiste" ? (
+                  {state.result === "LOSE" ? (
                     <>
                       <ContainerChoiceImge>
                         <DivCircleOptionOne
@@ -296,11 +299,15 @@ export default function Game() {
               </React.Fragment>
             )}
           </DivResultContent>
-          <p>
-            Tu elegiste: {state.choice}, tu enemigo eligio:{state.enemy}, El
-            resultado es: {state.result}
-            <button onClick={handleReset}>Reset</button>
-          </p>
+
+          <DivResultTextResults>
+            {countTime && (
+              <TitleTextWinnerOrLoser>
+                YOU {state.result}
+              </TitleTextWinnerOrLoser>
+            )}
+            <ButtonForReset onClick={handleReset}>PLAY AGAIN</ButtonForReset>
+          </DivResultTextResults>
         </DivResult>
       )}
     </React.Fragment>
