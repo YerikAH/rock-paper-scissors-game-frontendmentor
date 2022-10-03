@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import bgOptions from "../images/bg-pentagon.svg";
+import bgOptionsDesktop from "../images/bg-pentagon-desktop.svg";
 import scissorrs from "../images/icon-scissors.svg";
 import paper from "../images/icon-paper.svg";
 import rock from "../images/icon-rock.svg";
@@ -14,13 +15,20 @@ export const Navegator = styled.nav`
 `;
 export const NavegatorUl = styled.ul`
   display: flex;
-  max-width: 720px;
+  max-width: 600px;
   width: 100%;
   justify-content: space-between;
   padding: 0.5rem 1rem;
   border: 4px solid #fff5;
   border-radius: 0.5em;
   height: 6rem;
+
+  @media (min-width: 720px) {
+    padding: 1rem;
+    border: 4px solid #fff5;
+    border-radius: 1em;
+    height: auto;
+  }
 `;
 export const NavegatorUlLi = styled.li`
   height: 100%;
@@ -30,6 +38,9 @@ export const NavegatorUlLi = styled.li`
 `;
 export const ImageLogo = styled.img`
   height: 70%;
+  @media (min-width: 720px) {
+    height: 100%;
+  }
 `;
 export const NavegatorUlLiA = styled.a``;
 export const NavegatorUlLiASpecial = styled.a`
@@ -61,6 +72,13 @@ export const FiveDivImage = styled.div`
   position: relative;
   scale: 0.7;
   background-size: contain;
+  @media (min-width: 720px) {
+    max-width: 340px;
+    background-image: url(${bgOptionsDesktop});
+    height: 20rem;
+    scale: 1;
+    margin: 5rem 0;
+  }
 `;
 export const FiveDivImageContainer = styled.div`
   width: 100vw;
@@ -105,6 +123,10 @@ export const DivCircleOptionOne = styled.div`
   display: grid;
   place-items: center;
   transition: 2s;
+  /* @media (min-width: 720px) {
+    max-width: 160px;
+    max-height: 160px;
+  } */
 `;
 
 export const DivCircleOptionTwo = styled.div`
@@ -117,6 +139,10 @@ export const DivCircleOptionTwo = styled.div`
   box-shadow: inset 3px 2px 2px 1px rgba(0, 0, 0, 0.37);
   display: grid;
   place-items: center;
+  /* @media (min-width: 720px) {
+    max-width: 120px;
+    max-height: 120px;
+  } */
 `;
 export const DivImageYellow = styled.div`
   background-image: url(${scissorrs});
