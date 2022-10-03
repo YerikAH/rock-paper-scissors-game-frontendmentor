@@ -64,7 +64,7 @@ export const FiveDivImage = styled.div`
 `;
 export const FiveDivImageContainer = styled.div`
   width: 100vw;
-  height: 82%;
+  height: 75%;
   display: flex;
   place-items: start;
   justify-content: center;
@@ -180,7 +180,7 @@ export const DivAletoreStop = styled.div`
   max-width: 90px;
   position: absolute;
   bottom: auto;
-  right: 0;
+  right: auto;
   top: auto;
   left: auto;
   margin: 0;
@@ -188,7 +188,7 @@ export const DivAletoreStop = styled.div`
   height: 100%;
   max-height: 90px;
   background-color: #0005;
-  margin-top: 30px;
+  margin-top: 20px;
 `;
 export const ParrChoiceUser = styled.h2`
   color: var(--white);
@@ -211,6 +211,28 @@ export const ContainerChoiceAll = styled.div`
 export const DivResultTextResults = styled.div`
   height: 40%;
 `;
-export const TitleTextWinnerOrLoser = styled.h4``;
-export const ButtonForReset = styled.button``;
+export const TitleTextWinnerOrLoser = styled.h4`
+  font-size: 3rem;
+  color: var(--white);
+  text-align: center;
+  margin-top: 2rem;
+  letter-spacing: 2px;
+`;
+export const ButtonForReset = styled.button`
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: var(--Dark-text);
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  background-color: var(--white);
+  border: none;
+  width: 12.7rem;
+  border-radius: 0.5em;
+  transition: 0.3s;
+  &:hover {
+    color: var(--red);
+  }
+`;
 // box-shadow: inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08;

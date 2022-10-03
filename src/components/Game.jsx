@@ -237,7 +237,9 @@ export default function Game() {
               )}
             </ContainerChoiceAll>
             {!countTime ? (
-              <DivAletoreStop></DivAletoreStop>
+              <ContainerChoiceImge>
+                <DivAletoreStop></DivAletoreStop>
+              </ContainerChoiceImge>
             ) : (
               <React.Fragment>
                 <ContainerChoiceAll>
