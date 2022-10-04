@@ -49,3 +49,6 @@ button {
   list-style: none;
   cursor: pointer;
 }
+div {
+  transition: 0.3s;
+}

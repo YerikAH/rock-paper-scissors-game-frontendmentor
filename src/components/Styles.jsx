@@ -27,7 +27,7 @@ export const NavegatorUl = styled.ul`
     padding: 1rem;
     border: 4px solid #fff5;
     border-radius: 1em;
-    height: auto;
+    height: 8rem;
   }
 `;
 export const NavegatorUlLi = styled.li`
@@ -50,6 +50,9 @@ export const NavegatorUlLiASpecial = styled.a`
   display: grid;
   place-items: center;
   padding: 0.5rem 1rem;
+  @media (min-width: 720px) {
+    padding: 0.5rem 2rem;
+  }
 `;
 export const SpanScoreText = styled.span`
   font-size: 0.7rem;
@@ -60,6 +63,9 @@ export const SpanScoreCounts = styled.span`
   font-size: 2rem;
   font-weight: 700;
   color: var(--Dark-text);
+  @media (min-width: 720px) {
+    font-size: 3rem;
+  }
 `;
 
 export const FiveDivImage = styled.div`
@@ -123,6 +129,14 @@ export const DivCircleOptionOne = styled.div`
   display: grid;
   place-items: center;
   transition: 2s;
+  @media (min-width: 720px) {
+    scale: ${(props) => props.endtt && "1.5"};
+  }
+
+  @media (min-width: 1100px) {
+    scale: ${(props) => props.endtt && "2"};
+  }
+
   /* @media (min-width: 720px) {
     max-width: 160px;
     max-height: 160px;
@@ -200,6 +214,7 @@ export const DivResultContent = styled.div`
   grid-template-columns: repeat(2, 50%);
   position: relative;
   height: 40%;
+  transition: 1.5s;
 `;
 export const DivAletoreStop = styled.div`
   width: 100%;
@@ -232,10 +247,26 @@ export const ContainerChoiceAll = styled.div`
   display: grid;
   grid-template-rows: 120px auto;
   row-gap: 1.5rem;
+  @media (min-width: 720px) {
+    grid-template-rows: 200px auto;
+  }
 `;
 
 export const DivResultTextResults = styled.div`
   height: 40%;
+  position: relative;
+  transition: 0.3s;
+  //Bad practice :(
+  @media (max-width: 820px) {
+    top: 5% !important;
+  }
+  @media (max-width: 500px) {
+    top: 0% !important;
+  }
+  @media (min-width: 820px) {
+    height: 0%;
+    overflow: hidden;
+  }
 `;
 export const TitleTextWinnerOrLoser = styled.h4`
   font-size: 3rem;

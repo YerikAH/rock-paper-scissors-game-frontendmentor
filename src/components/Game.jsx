@@ -44,7 +44,8 @@ export default function Game() {
   const [state, dispatch] = useReducer(optionsMore, initialState);
   const [randomNumber, setRandomNumber] = useState(0);
   const [styleDinamic, setStyleDinamic] = useState({});
-
+  const [styleSeparator, setStyleSeparator] = useState({});
+  const [styleRelative, setStyleRelative] = useState({});
   const handleTijera = () => {
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({
@@ -92,6 +93,8 @@ export default function Game() {
     if (countTime) {
       setCountTime(false);
       setStyleDinamic({});
+      setStyleSeparator({});
+      setStyleRelative({});
     }
   };
   function validateColor() {
@@ -103,7 +106,20 @@ export default function Game() {
         boxShadow:
           "inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08",
       });
+      setStyleSeparator({
+        maxWidth: "1200px",
+      });
     }, 2500);
+    setTimeout(() => {
+      if (window.innerWidth > 720) {
+        setStyleRelative({
+          overflow: "visible",
+          top: "-40%",
+        });
+      } else {
+        setStyleRelative({});
+      }
+    }, 3000);
     if (randomNumber == 0) {
       setChoiceRenderEnemy("red");
     } else if (randomNumber == 1) {
@@ -187,7 +203,7 @@ export default function Game() {
       )}
       {!state.menu && (
         <DivResult>
-          <DivResultContent>
+          <DivResultContent style={styleSeparator}>
             <ContainerChoiceAll>
               {state.result === "WIN" ? (
                 <>
@@ -195,6 +211,7 @@ export default function Game() {
                     <DivCircleOptionOne
                       color={choiceRender}
                       style={styleDinamic}
+                      endtt
                     >
                       <DivCircleOptionTwo>
                         {choiceRender === "red" && <DivImageRed></DivImageRed>}
@@ -216,7 +233,7 @@ export default function Game() {
               ) : (
                 <>
                   <ContainerChoiceImge>
-                    <DivCircleOptionOne color={choiceRender}>
+                    <DivCircleOptionOne color={choiceRender} endtt>
                       <DivCircleOptionTwo>
                         {choiceRender === "red" && <DivImageRed></DivImageRed>}
                         {choiceRender === "blue" && (
@@ -249,6 +266,7 @@ export default function Game() {
                         <DivCircleOptionOne
                           color={choiceRenderEnemy}
                           style={styleDinamic}
+                          endtt
                         >
                           <DivCircleOptionTwo>
                             {choiceRenderEnemy === "red" && (
@@ -274,7 +292,7 @@ export default function Game() {
                   ) : (
                     <>
                       <ContainerChoiceImge>
-                        <DivCircleOptionOne color={choiceRenderEnemy}>
+                        <DivCircleOptionOne color={choiceRenderEnemy} endtt>
                           <DivCircleOptionTwo>
                             {choiceRenderEnemy === "red" && (
                               <DivImageRed></DivImageRed>
@@ -302,13 +320,17 @@ export default function Game() {
             )}
           </DivResultContent>
 
-          <DivResultTextResults>
+          <DivResultTextResults style={styleRelative}>
             {countTime && (
-              <TitleTextWinnerOrLoser>
-                YOU {state.result}
-              </TitleTextWinnerOrLoser>
+              <>
+                <TitleTextWinnerOrLoser>
+                  YOU {state.result}
+                </TitleTextWinnerOrLoser>
+                <ButtonForReset onClick={handleReset}>
+                  PLAY AGAIN
+                </ButtonForReset>
+              </>
             )}
-            <ButtonForReset onClick={handleReset}>PLAY AGAIN</ButtonForReset>
           </DivResultTextResults>
         </DivResult>
       )}
