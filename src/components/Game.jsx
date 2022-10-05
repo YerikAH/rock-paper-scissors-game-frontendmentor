@@ -46,20 +46,19 @@ export default function Game() {
   const [styleDinamic, setStyleDinamic] = useState({});
   const [styleSeparator, setStyleSeparator] = useState({});
   const [styleRelative, setStyleRelative] = useState({});
+
   const handleTijera = () => {
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({
       select: "SCISSORS",
       randomNumber: randomNumber,
     });
-    console.log(randomNumber);
     setChoiceRender("yellow");
     validateColor();
   };
   const handlePapel = () => {
     setChoiceRender("blue");
     setRandomNumber(parseInt(Math.random() * 5));
-    console.log(randomNumber);
     dispatch({ select: "PAPER", randomNumber: randomNumber });
     validateColor();
   };
@@ -68,24 +67,18 @@ export default function Game() {
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({ select: "ROCK", randomNumber: randomNumber });
     validateColor();
-
-    console.log(randomNumber);
   };
   const handleLagarto = () => {
     setChoiceRender("purple");
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({ select: "LIZARD", randomNumber: randomNumber });
     validateColor();
-
-    console.log(randomNumber);
   };
   const handleTiburon = () => {
     setChoiceRender("sky");
     setRandomNumber(parseInt(Math.random() * 5));
     dispatch({ select: "SPOCK", randomNumber: randomNumber });
     validateColor();
-
-    console.log(randomNumber);
   };
 
   const handleReset = () => {
@@ -100,7 +93,7 @@ export default function Game() {
   function validateColor() {
     setTimeout(() => {
       setCountTime(true);
-    }, 2000);
+    }, 1000);
     setTimeout(() => {
       setStyleDinamic({
         boxShadow:
@@ -109,17 +102,17 @@ export default function Game() {
       setStyleSeparator({
         maxWidth: "1200px",
       });
-    }, 2500);
+    }, 1250);
     setTimeout(() => {
       if (window.innerWidth > 720) {
         setStyleRelative({
           overflow: "visible",
-          top: "-40%",
+          top: "-70%",
         });
       } else {
         setStyleRelative({});
       }
-    }, 3000);
+    }, 1500);
     if (randomNumber == 0) {
       setChoiceRenderEnemy("red");
     } else if (randomNumber == 1) {
@@ -131,9 +124,16 @@ export default function Game() {
     } else if (randomNumber == 4) {
       setChoiceRenderEnemy("purple");
     }
-    console.log(state);
-    console.log(initialState);
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("score")) {
+      let tempVar = parseInt(localStorage.getItem("score"));
+      dispatch({ select: "DATA", newScore: tempVar });
+    } else {
+      dispatch({ select: "RESET" });
+    }
+  }, []);
 
   return (
     <React.Fragment>
@@ -143,9 +143,9 @@ export default function Game() {
             <ImageLogo src={logo} alt="logo" />
           </NavegatorUlLi>
           <NavegatorUlLi>
-            <NavegatorUlLiASpecial href="">
+            <NavegatorUlLiASpecial>
               <SpanScoreText>SCORE</SpanScoreText>
-              <SpanScoreCounts>0</SpanScoreCounts>
+              <SpanScoreCounts>{state.count}</SpanScoreCounts>
             </NavegatorUlLiASpecial>
           </NavegatorUlLi>
         </NavegatorUl>

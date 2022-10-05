@@ -78,7 +78,7 @@ export const FiveDivImage = styled.div`
   position: relative;
   scale: 0.7;
   background-size: contain;
-  @media (min-width: 720px) {
+  @media (min-width: 720px) and (min-height: 600px) {
     max-width: 340px;
     background-image: url(${bgOptionsDesktop});
     height: 20rem;
@@ -90,7 +90,7 @@ export const FiveDivImageContainer = styled.div`
   width: 100vw;
   height: 75%;
   display: flex;
-  place-items: start;
+  place-items: center;
   justify-content: center;
 `;
 export const DivCircleOptionOne = styled.div`
@@ -128,7 +128,7 @@ export const DivCircleOptionOne = styled.div`
   left: ${(props) => props.justleft && props.justleft};
   display: grid;
   place-items: center;
-  transition: 2s;
+  transition: 1s;
   @media (min-width: 720px) {
     scale: ${(props) => props.endtt && "1.5"};
   }
@@ -215,6 +215,9 @@ export const DivResultContent = styled.div`
   position: relative;
   height: 40%;
   transition: 1.5s;
+  @media (min-width: 720px) {
+    height: 85%;
+  }
 `;
 export const DivAletoreStop = styled.div`
   width: 100%;
@@ -236,19 +239,26 @@ export const ParrChoiceUser = styled.h2`
   letter-spacing: 0.2em;
   font-size: 0.8rem;
   text-align: center;
+  grid-area: secondName;
+  @media (min-width: 720px) {
+    font-size: 1rem;
+  }
 `;
 export const ContainerChoiceImge = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+  grid-area: firstName;
 `;
 
 export const ContainerChoiceAll = styled.div`
   display: grid;
   grid-template-rows: 120px auto;
   row-gap: 1.5rem;
+  grid-template-areas: "firstName" "secondName";
   @media (min-width: 720px) {
-    grid-template-rows: 200px auto;
+    grid-template-rows: 100px 200px;
+    grid-template-areas: "secondName" "firstName";
   }
 `;
 
@@ -266,6 +276,9 @@ export const DivResultTextResults = styled.div`
   @media (min-width: 820px) {
     height: 0%;
     overflow: hidden;
+  }
+  @media (max-width: 720px) and (max-height: 450px) {
+    top: 50% !important;
   }
 `;
 export const TitleTextWinnerOrLoser = styled.h4`
