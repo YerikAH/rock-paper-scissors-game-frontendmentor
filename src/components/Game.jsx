@@ -27,7 +27,9 @@ import {
   ParrChoiceUser,
   SpanScoreCounts,
   SpanScoreText,
+  Footer,
   TitleTextWinnerOrLoser,
+  ButtonFooter,
 } from "./Styles";
 
 // images
@@ -334,6 +336,9 @@ export default function Game() {
           </DivResultTextResults>
         </DivResult>
       )}
+      <Footer>
+        <ButtonFooter></ButtonFooter>
+      </Footer>
     </React.Fragment>
   );
 }

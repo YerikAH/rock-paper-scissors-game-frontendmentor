@@ -305,4 +305,6 @@ export const ButtonForReset = styled.button`
     color: var(--red);
   }
 `;
+export const Footer = styled.footer``
+export const ButtonFooter = styled.footer``
 // box-shadow: inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08;
