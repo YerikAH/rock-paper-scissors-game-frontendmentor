@@ -26,6 +26,7 @@
   right: 0;
   margin: 1rem;
   top: 0;
+  cursor: pointer;
 }
 .modal-center__all_image {
   width: 100%;
@@ -67,5 +68,8 @@
   }
   .modal-center__all_title h2 {
     padding: 0 0 0 2rem;
+  }
+  .bottonForClose {
+    margin: 2.6rem 2rem;
   }
 }

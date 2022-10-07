@@ -249,8 +249,8 @@ export const ContainerChoiceImge = styled.div`
   display: flex;
   justify-content: center;
   @media (min-width: 720px) {
-    margin-top: 8rem;
-    scale: 2;
+    margin-top: ${(props) => props.random && "9rem"};
+    scale: ${(props) => props.random && "2"};
   }
 `;
 
@@ -269,8 +269,9 @@ export const DivResultTextResults = styled.div`
   height: 40%;
   position: relative;
   transition: 0.3s;
+  top: -50%;
   //Bad practice :(
-  @media (max-width: 820px) {
+  /* @media (max-width: 820px) {
     top: 5% !important;
   }
   @media (max-width: 500px) {
@@ -282,7 +283,7 @@ export const DivResultTextResults = styled.div`
   }
   @media (max-width: 720px) and (max-height: 450px) {
     top: 50% !important;
-  }
+  } */
 `;
 export const TitleTextWinnerOrLoser = styled.h4`
   font-size: 3rem;
@@ -323,5 +324,12 @@ export const ButtonFooter = styled.button`
   border-radius: 0.3em;
   background: transparent;
   margin: 0 1rem 1rem 0;
+  letter-spacing: 3px;
+`;
+export const DivResultContainerAll = styled.div`
+  @media (min-width: 880px) {
+    position: relative;
+    top: -250px;
+  }
 `;
 // box-shadow: inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08;

@@ -22,7 +22,6 @@ import {
   Navegator,
   NavegatorUl,
   NavegatorUlLi,
-  NavegatorUlLiA,
   NavegatorUlLiASpecial,
   ParrChoiceUser,
   SpanScoreCounts,
@@ -30,6 +29,7 @@ import {
   Footer,
   TitleTextWinnerOrLoser,
   ButtonFooter,
+  DivResultContainerAll,
 } from "./Styles";
 
 // images
@@ -47,7 +47,6 @@ export default function Game({ setModal }) {
   const [randomNumber, setRandomNumber] = useState(0);
   const [styleDinamic, setStyleDinamic] = useState({});
   const [styleSeparator, setStyleSeparator] = useState({});
-  const [styleRelative, setStyleRelative] = useState({});
 
   const handleTijera = () => {
     setRandomNumber(parseInt(Math.random() * 5));
@@ -89,7 +88,6 @@ export default function Game({ setModal }) {
       setCountTime(false);
       setStyleDinamic({});
       setStyleSeparator({});
-      setStyleRelative({});
     }
   };
   function validateColor() {
@@ -104,17 +102,7 @@ export default function Game({ setModal }) {
       setStyleSeparator({
         maxWidth: "1200px",
       });
-    }, 1250);
-    setTimeout(() => {
-      if (window.innerWidth > 720) {
-        setStyleRelative({
-          overflow: "visible",
-          top: "-70%",
-        });
-      } else {
-        setStyleRelative({});
-      }
-    }, 1500);
+    }, 1000);
     if (randomNumber == 0) {
       setChoiceRenderEnemy("red");
     } else if (randomNumber == 1) {
@@ -256,7 +244,7 @@ export default function Game({ setModal }) {
               )}
             </ContainerChoiceAll>
             {!countTime ? (
-              <ContainerChoiceImge>
+              <ContainerChoiceImge random>
                 <DivAletoreStop></DivAletoreStop>
               </ContainerChoiceImge>
             ) : (
@@ -322,18 +310,18 @@ export default function Game({ setModal }) {
             )}
           </DivResultContent>
 
-          <DivResultTextResults style={styleRelative}>
-            {countTime && (
-              <>
+          {countTime && (
+            <DivResultTextResults>
+              <DivResultContainerAll>
                 <TitleTextWinnerOrLoser>
                   YOU {state.result}
                 </TitleTextWinnerOrLoser>
                 <ButtonForReset onClick={handleReset}>
                   PLAY AGAIN
                 </ButtonForReset>
-              </>
-            )}
-          </DivResultTextResults>
+              </DivResultContainerAll>
+            </DivResultTextResults>
+          )}
         </DivResult>
       )}
       <Footer>
