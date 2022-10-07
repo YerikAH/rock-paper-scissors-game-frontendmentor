@@ -132,15 +132,10 @@ export const DivCircleOptionOne = styled.div`
   @media (min-width: 720px) {
     scale: ${(props) => props.endtt && "1.5"};
   }
-
   @media (min-width: 1100px) {
     scale: ${(props) => props.endtt && "2"};
   }
-
-  /* @media (min-width: 720px) {
-    max-width: 160px;
-    max-height: 160px;
-  } */
+  cursor: ${(props) => (props.optinosActive ? "pointer" : "auto")};
 `;
 
 export const DivCircleOptionTwo = styled.div`
@@ -153,10 +148,6 @@ export const DivCircleOptionTwo = styled.div`
   box-shadow: inset 3px 2px 2px 1px rgba(0, 0, 0, 0.37);
   display: grid;
   place-items: center;
-  /* @media (min-width: 720px) {
-    max-width: 120px;
-    max-height: 120px;
-  } */
 `;
 export const DivImageYellow = styled.div`
   background-image: url(${scissorrs});
@@ -270,20 +261,6 @@ export const DivResultTextResults = styled.div`
   position: relative;
   transition: 0.3s;
   top: -50%;
-  //Bad practice :(
-  /* @media (max-width: 820px) {
-    top: 5% !important;
-  }
-  @media (max-width: 500px) {
-    top: 0% !important;
-  }
-  @media (min-width: 820px) {
-    height: 0%;
-    overflow: hidden;
-  }
-  @media (max-width: 720px) and (max-height: 450px) {
-    top: 50% !important;
-  } */
 `;
 export const TitleTextWinnerOrLoser = styled.h4`
   font-size: 3rem;
@@ -324,7 +301,13 @@ export const ButtonFooter = styled.button`
   border-radius: 0.3em;
   background: transparent;
   margin: 0 1rem 1rem 0;
+  transition: 0.3s;
   letter-spacing: 3px;
+  &:hover {
+    background-color: var(--white);
+    color: var(--Dark-text);
+    border: none;
+  }
 `;
 export const DivResultContainerAll = styled.div`
   @media (min-width: 880px) {
@@ -332,4 +315,5 @@ export const DivResultContainerAll = styled.div`
     top: -250px;
   }
 `;
+// for the winner's circles this property is added
 // box-shadow: inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08;

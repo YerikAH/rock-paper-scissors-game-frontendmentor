@@ -143,7 +143,13 @@ export default function Game({ setModal }) {
       {state.menu && (
         <FiveDivImageContainer>
           <FiveDivImage>
-            <DivCircleOptionOne bottom right color="red" just="-60px">
+            <DivCircleOptionOne
+              bottom
+              right
+              color="red"
+              just="-60px"
+              optinosActive
+            >
               <DivCircleOptionTwo>
                 <DivImageRed onClick={handlePiedra}></DivImageRed>
               </DivCircleOptionTwo>
@@ -154,6 +160,7 @@ export default function Game({ setModal }) {
               color="blue"
               justop="70px"
               justright="-50px"
+              optinosActive
             >
               <DivCircleOptionTwo>
                 <DivImageBlue onClick={handlePapel}></DivImageBlue>
@@ -167,6 +174,7 @@ export default function Game({ setModal }) {
               mar
               color="yellow"
               justop="-50px"
+              optinosActive
             >
               <DivCircleOptionTwo>
                 <DivImageYellow onClick={handleTijera}></DivImageYellow>
@@ -178,12 +186,19 @@ export default function Game({ setModal }) {
               color="sky"
               justop="70px"
               justleft="-50px"
+              optinosActive
             >
               <DivCircleOptionTwo>
                 <DivImageSky onClick={handleTiburon}></DivImageSky>
               </DivCircleOptionTwo>
             </DivCircleOptionOne>
-            <DivCircleOptionOne left bottom color="purple" just="-60px">
+            <DivCircleOptionOne
+              left
+              bottom
+              color="purple"
+              just="-60px"
+              optinosActive
+            >
               <DivCircleOptionTwo>
                 <DivImagePurple onClick={handleLagarto}></DivImagePurple>
               </DivCircleOptionTwo>
