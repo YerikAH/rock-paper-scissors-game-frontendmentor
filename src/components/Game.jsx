@@ -36,10 +36,6 @@ import {
 import logo from "../images/logo-bonus.svg";
 
 export default function Game({ setModal }) {
-  //0 = piedra
-  //1 = papel
-  //2 = tijera
-
   const [countTime, setCountTime] = useState(false);
   const [choiceRender, setChoiceRender] = useState("");
   const [choiceRenderEnemy, setChoiceRenderEnemy] = useState("");
