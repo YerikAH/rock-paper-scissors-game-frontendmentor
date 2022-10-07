@@ -1,11 +1,12 @@
+import { useState } from "react";
 import Game from "./components/Game";
 import Modal from "./components/Modal";
-
 function App() {
+  const [modal, setModal] = useState(false);
   return (
     <>
-      <Modal />
-      <Game />
+      {modal && <Modal setModal={setModal} />}
+      <Game setModal={setModal} />
     </>
   );
 }

@@ -23,10 +23,17 @@
   font-family: "Barlow Semi Condensed", sans-serif;
 }
 body {
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 #root {
   height: 100%;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 html {
   background: rgb(31, 54, 86);

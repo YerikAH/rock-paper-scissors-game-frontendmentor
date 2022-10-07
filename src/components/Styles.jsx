@@ -248,7 +248,10 @@ export const ContainerChoiceImge = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  grid-area: firstName;
+  @media (min-width: 720px) {
+    margin-top: 8rem;
+    scale: 2;
+  }
 `;
 
 export const ContainerChoiceAll = styled.div`
@@ -305,6 +308,20 @@ export const ButtonForReset = styled.button`
     color: var(--red);
   }
 `;
-export const Footer = styled.footer``
-export const ButtonFooter = styled.footer``
+export const Footer = styled.footer`
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  @media (min-width: 720px) {
+    justify-content: end;
+  }
+`;
+export const ButtonFooter = styled.button`
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 0.5rem 2rem;
+  border-radius: 0.3em;
+  background: transparent;
+  margin: 0 1rem 1rem 0;
+`;
 // box-shadow: inset 0px 6px 5px transparent, 0px 0px 0px 15px #ffffff10, 0px 0px 50px #ffffff10, 0px 0px 0px 40px #ffffff05, 0px 0px 0px 70px #ffffff08;

@@ -35,7 +35,7 @@ import {
 // images
 import logo from "../images/logo-bonus.svg";
 
-export default function Game() {
+export default function Game({ setModal }) {
   //0 = piedra
   //1 = papel
   //2 = tijera
@@ -337,7 +337,7 @@ export default function Game() {
         </DivResult>
       )}
       <Footer>
-        <ButtonFooter></ButtonFooter>
+        <ButtonFooter onClick={() => setModal(true)}>RULES</ButtonFooter>
       </Footer>
     </React.Fragment>
   );

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
 .modal-center__all {
   position: fixed;
   left: 0;
@@ -46,6 +48,24 @@
 }
 .modal-center__all_title h2 {
   color: var(--Dark-text);
+  font-family: "Barlow Semi Condensed", sans-serif;
 }
 @media (min-width: 720px) {
+  .modal-center__all__contain {
+    grid-template-rows: 20% 74%;
+    gap: 0%;
+    width: 500px;
+    height: 540px;
+    border-radius: 1.5em;
+  }
+  .modal-center__all_title {
+    justify-content: start;
+    align-items: center;
+  }
+  .modal-center__all {
+    place-items: center;
+  }
+  .modal-center__all_title h2 {
+    padding: 0 0 0 2rem;
+  }
 }
